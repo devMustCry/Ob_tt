@@ -1,0 +1,2 @@
+rootProject.name = "Ob_tt"
+include ':app'
