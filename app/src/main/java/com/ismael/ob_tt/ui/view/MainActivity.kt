@@ -22,13 +22,8 @@ class MainActivity : AppCompatActivity() {
         charactersViewModel.onCreate()
 
         charactersViewModel.characterModel.observe(this, Observer {
-            binding.tvQuote.text = it.quote
-            binding.tvAuthor.text = it.author
+            binding.tvQuote.text = it.status
         })
-        charactersViewModel.isLoading.observe(this, Observer {
-            binding.loading.isVisible = it
-        })
-
 
     }
 

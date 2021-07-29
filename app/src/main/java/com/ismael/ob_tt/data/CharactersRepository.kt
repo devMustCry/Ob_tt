@@ -6,7 +6,7 @@ import com.ismael.ob_tt.data.network.CharacterService
 class CharactersRepository {
     private val api = CharacterService()
 
-    suspend fun getAllCharacters(): List<CharacterModel> {
+    suspend fun getAllCharacters(): CharacterModel? {
         return api.getAllCharacters()
     }
 }

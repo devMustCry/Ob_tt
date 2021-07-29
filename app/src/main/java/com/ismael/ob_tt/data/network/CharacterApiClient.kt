@@ -7,8 +7,8 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface CharacterApiClient {
-    @GET("/characters")
-    suspend fun getAllCharacters(@Query("ts") ts:String, @Query("apikey") apiKey:String, @Query("hash") hash:String): Response<List<CharacterModel>>
+    @GET("/v1/public/characters")
+    suspend fun getAllCharacters(@Query("ts") ts:String, @Query("apikey") apiKey:String, @Query("hash") hash:String): Response<CharacterModel>
 
     @GET("/characters/{characterId}")
     suspend fun getSelectCharacter(@Path("characterId") id: String, @Query("ts") ts:String, @Query("apikey") apikey : String, @Query("hash") hash:String): Response<CharacterModel>

@@ -4,26 +4,21 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ismael.ob_tt.data.model.CharacterModel
-import com.ismael.ob_tt.domain.GetCharactersUseCase
+import com.ismael.ob_tt.domain.GetAllCharactersUseCase
 import kotlinx.coroutines.launch
 
 class CharactersViewModel : ViewModel() {
 
     val characterModel = MutableLiveData<CharacterModel>()
-    val isLoading = MutableLiveData<Boolean>()
 
-    var getCharactersUseCase = GetCharactersUseCase()
+    var getAllCharactersUseCase = GetAllCharactersUseCase()
 
     fun onCreate() {
         viewModelScope.launch {
-            isLoading.postValue(true)
-            val result = getCharactersUseCase()
+            val result = getAllCharactersUseCase()
 
-            if(!result.isNullOrEmpty()){
-                characterModel.postValue(result[0])
-                isLoading.postValue(false)
-            }else{
-                isLoading.postValue(false)
+            if(!result?.status.isNullOrEmpty()){
+                characterModel.postValue(result!!)
             }
         }
     }
