@@ -13,4 +13,14 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="Item.Character.Name" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">18sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="Title.Ob_tt" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">40sp</item>
+        <item name="android:gravity">center</item>
+    </style>
 </resources>

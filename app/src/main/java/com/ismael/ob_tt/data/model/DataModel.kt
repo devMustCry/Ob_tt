@@ -7,5 +7,5 @@ data class DataModel (
     @SerializedName("limit")    var limit: String?,
     @SerializedName("total")    var total: String?,
     @SerializedName("count")    var count: String?,
-    @SerializedName("results")  var results: List<Result?>?
+    @SerializedName("results")  var characters: List<CharacterModel>?
 )

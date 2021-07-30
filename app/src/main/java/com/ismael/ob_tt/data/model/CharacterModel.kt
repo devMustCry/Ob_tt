@@ -3,11 +3,15 @@ package com.ismael.ob_tt.data.model
 import com.google.gson.annotations.SerializedName
 
 data class CharacterModel (
-    @SerializedName("code")             var code: String?,
-    @SerializedName("status")           var status: String?,
-    @SerializedName("copyright")        var copyright: String?,
-    @SerializedName("attributionText")  var attributionText: String?,
-    @SerializedName("attributionHTML")  var attributionHTML: String?,
-    @SerializedName("data")             var data: DataModel?,
-    @SerializedName("etag")             var etag: String?
+    @SerializedName("id")               var id: String?,
+    @SerializedName("name")             var name: String?,
+    @SerializedName("description")      var description: String?,
+    @SerializedName("modified")         var modified: String?,
+    @SerializedName("resourceURI")      var resourceURI: String?,
+    @SerializedName("urls")             var urls: List<Url?>?,
+    @SerializedName("thumbnail")        var thumbnail: Thumbnail?,
+    @SerializedName("comics")           var comics: Comics?,
+    @SerializedName("stories")          var stories: Stories?,
+    @SerializedName("events")           var events: Events?,
+    @SerializedName("series")           var series: Series?
 )
