@@ -1,7 +1,5 @@
 package com.ismael.ob_tt.core
 
-import com.ismael.ob_tt.util.HashUtils.md5
-
 interface ApiEndPoint {
     companion object {
         val PUBLIC  = "2c9d9138ce4e899e15158598db901200"

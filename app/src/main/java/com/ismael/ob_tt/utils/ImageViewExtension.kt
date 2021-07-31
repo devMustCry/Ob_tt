@@ -1,4 +1,4 @@
-package com.ismael.ob_tt.util
+package com.ismael.ob_tt.utils
 
 import android.widget.ImageView
 import com.squareup.picasso.Picasso

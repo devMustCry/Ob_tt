@@ -1,4 +1,4 @@
-package com.ismael.ob_tt.util
+package com.ismael.ob_tt.utils
 
 import java.math.BigInteger
 import java.security.MessageDigest

@@ -1,33 +1,41 @@
 package com.ismael.ob_tt.ui.view
 
 import android.os.Bundle
-import android.view.View
-import android.widget.Toast
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
-import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.ismael.ob_tt.data.model.AllCharactersResponse
-import com.ismael.ob_tt.data.model.CharacterModel
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupWithNavController
+import com.ismael.ob_tt.R
 import com.ismael.ob_tt.databinding.ActivityMainBinding
-import com.ismael.ob_tt.ui.adapter.CharactersAdapter
-import com.ismael.ob_tt.ui.viewmodel.CharactersViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val binding: ActivityMainBinding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        val navHostFragment: NavHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController: NavController = navHostFragment.navController
+
+        val appBarConfiguration: AppBarConfiguration = AppBarConfiguration(navController.graph)
+        binding.toolbar.setupWithNavController(navController, appBarConfiguration)
+
+    }
+
+    /*private lateinit var binding: ActivityMainBinding
 
     private val charactersViewModel: CharactersViewModel by viewModels()
 
-    lateinit var listCharacters: List<CharacterModel>
+    lateinit var listCharacters: List<Champ>
     lateinit var charactersAdapter: CharactersAdapter
 
     private fun onListItemClick(position: Int) {
-        Toast.makeText(this, listCharacters[position].name, Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, listCharacters[position].toString(), Toast.LENGTH_SHORT).show()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -87,6 +95,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun showErrorScreen(){
 
-    }
+    }*/
 
 }

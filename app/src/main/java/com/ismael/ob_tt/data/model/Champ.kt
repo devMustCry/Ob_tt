@@ -1,0 +1,21 @@
+package com.ismael.ob_tt.data.model
+
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import com.google.gson.annotations.SerializedName
+
+@Entity(tableName = "champs")
+data class Champ(
+    @PrimaryKey
+    @SerializedName("id") var id: String?,
+    @SerializedName("name") var name: String?,
+    @SerializedName("description") var description: String?,
+    @SerializedName("modified") var modified: String?,
+    @SerializedName("resourceURI") var resourceURI: String?,
+    @SerializedName("urls") var urls: List<Url>?,
+    @SerializedName("thumbnail") var thumbnail: Thumbnail?,
+    @SerializedName("comics") var comics: Comics?,
+    @SerializedName("stories") var stories: Stories?,
+    @SerializedName("events") var events: Events?,
+    @SerializedName("series") var series: Series?
+)
