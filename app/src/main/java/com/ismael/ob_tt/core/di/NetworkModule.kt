@@ -4,8 +4,8 @@ import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.ismael.ob_tt.core.ApiEndPoint
-//import com.ismael.ob_tt.data.local.AppDatabase
-//import com.ismael.ob_tt.data.local.CharacterDao
+import com.ismael.ob_tt.data.local.AppDatabase
+import com.ismael.ob_tt.data.local.ChampDao
 import com.ismael.ob_tt.data.network.CharacterApiClient
 import com.ismael.ob_tt.data.network.CharacterService
 import com.ismael.ob_tt.data.repository.CharactersRepository
@@ -38,8 +38,8 @@ object NetworkModule {
             .build()
     }
 
-    /*@Provides
-    fun provideGson(): Gson = GsonBuilder().create()*/
+    @Provides
+    fun provideGson(): Gson = GsonBuilder().create()
 
     @Singleton
     @Provides
@@ -51,18 +51,18 @@ object NetworkModule {
     @Provides
     fun provideCharacterRemoteDataSource(characterApiClient: CharacterApiClient) = CharacterService(characterApiClient)
 
-    /*@Singleton
+    @Singleton
     @Provides
     fun provideDatabase(@ApplicationContext appContext: Context) = AppDatabase.getDatabase(appContext)
 
     @Singleton
     @Provides
-    fun provideCharacterDao(db: AppDatabase) = db.characterDao()
+    fun provideCharacterDao(db: AppDatabase) = db.champDao()
 
     @Singleton
     @Provides
     fun provideRepository(remoteDataSource: CharacterService,
-                          localDataSource: CharacterDao) =
-        CharactersRepository(remoteDataSource, localDataSource)*/
+                          localDataSource: ChampDao) =
+        CharactersRepository(remoteDataSource, localDataSource)
 
 }

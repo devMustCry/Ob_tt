@@ -8,8 +8,6 @@ interface ApiEndPoint {
 
 
         val BASEPATH = "http://gateway.marvel.com/"
-        val ALL_CHARACTERS = "characters"
-        val SELECT_CHARACTER = "characters/%1\$s"
 
     }
 }

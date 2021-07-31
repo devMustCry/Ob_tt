@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.ismael.ob_tt.data.model.Champ
 
-/*@Database(entities = [Champ::class], version = 1, exportSchema = false)
+@Database(entities = [Champ::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun champDao(): ChampDao
@@ -23,4 +23,4 @@ abstract class AppDatabase : RoomDatabase() {
                 .build()
     }
 
-}*/
+}

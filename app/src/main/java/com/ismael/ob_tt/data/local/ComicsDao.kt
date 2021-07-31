@@ -8,18 +8,18 @@ import androidx.room.Query
 import com.ismael.ob_tt.data.model.Champ
 
 @Dao
-interface ChampDao {
+interface ComicsDao {
 
-    @Query("SELECT * FROM champs")
-    fun getAllChamps() : LiveData<List<Champ>>
+    @Query("SELECT * FROM comics")
+    fun getAllChamps() : LiveData<List<Comics>>
 
     @Query("SELECT * FROM champs WHERE id = :id")
-    fun getChamp(id: String): LiveData<Champ>
+    fun getChamp(id: String): LiveData<Comics>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(Champs: List<Champ>)
+    suspend fun insertAll(Comics: List<Comics>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(Champ: Champ)
+    suspend fun insert(Comic: Comics)
 
 }
