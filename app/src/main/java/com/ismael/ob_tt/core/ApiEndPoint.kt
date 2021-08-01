@@ -8,5 +8,6 @@ interface ApiEndPoint {
 
 
         val BASEPATH = "http://gateway.marvel.com/"
+
     }
 }
