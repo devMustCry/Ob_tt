@@ -36,5 +36,5 @@ He intentado utilizar todo con lo que he trabajdo hasta ahora:
     ● ViewModel y Livedata obviamente para poder trabajar con MVVM
     ● Room como capa de abstracción para la base de datos (Como he comentado anteriormente, en la rama "bbdd" se puede ver)
     ● Navigation de Android Jetpack que permite implementar la navegación
-    ● Sin test
+    ● Sin test 
     ● Internacionalización de textos
