@@ -1,35 +1,29 @@
 package com.ismael.ob_tt.ui.view
 
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
-import androidx.lifecycle.Observer
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupWithNavController
+import com.ismael.ob_tt.R
 import com.ismael.ob_tt.databinding.ActivityMainBinding
-import com.ismael.ob_tt.ui.viewmodel.CharactersViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-
-    private lateinit var binding: ActivityMainBinding
-
-    private val charactersViewModel: CharactersViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        val binding: ActivityMainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        charactersViewModel.onCreate()
+        val navHostFragment: NavHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController: NavController = navHostFragment.navController
 
-        charactersViewModel.characterModel.observe(this, Observer {
-            binding.tvQuote.text = it.quote
-            binding.tvAuthor.text = it.author
-        })
-        charactersViewModel.isLoading.observe(this, Observer {
-            binding.loading.isVisible = it
-        })
-
+        val appBarConfiguration: AppBarConfiguration = AppBarConfiguration(navController.graph)
+        binding.toolbar.setupWithNavController(navController, appBarConfiguration)
 
     }
-
 }
