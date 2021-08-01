@@ -13,7 +13,7 @@ class ChampsRepository @Inject constructor(
         return api.getChamps()
     }
 
-    suspend fun getChamp(idChamp : String): Resource<Champ>{
+    suspend fun getChamp(idChamp : String): Resource<ChampsResponse>{
         return api.getSelectChamp(idChamp)
     }
 }

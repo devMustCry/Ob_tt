@@ -19,7 +19,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class ChampDetailFragment : Fragment() {
 
     private var binding: ChampDetailFragmentBinding by autoCleared()
-    private val viewModel: ChampDetailViewModel by viewModels()
+    private val champViewModel: ChampDetailViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,14 +31,15 @@ class ChampDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        arguments?.get("champ")?.let {(bindChamp(it as Champ))}
+        setupObservers()
+        champViewModel.onCreate(arguments?.get("id") as String)
     }
 
     private fun setupObservers() {
-        viewModel.champModel.observe(viewLifecycleOwner, Observer {
+        champViewModel.champModel.observe(viewLifecycleOwner, Observer {
             when (it.status) {
                 Resource.Status.SUCCESS -> {
-                    bindChamp(it.data!!)
+                    bindChamp(it.data!!.data!!.champs?.get(0)!!)
                     binding.progressBar.visibility = View.GONE
                     binding.champCl.visibility = View.VISIBLE
                 }
