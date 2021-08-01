@@ -1,4 +1,8 @@
 <resources>
-    <string name="app_name">Marvel\'s Champs</string>
-    <string name="title">Pick one!</string>
+    <string name="app_name">Campeones Marvel</string>
+    <string name="title">Elige uno!</string>
+    <string name="comics">Comics: </string>
+    <string name="stories">Stories: </string>
+    <string name="events">Events: </string>
+    <string name="series">Series: </string>
 </resources>

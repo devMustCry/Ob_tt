@@ -1,105 +1,37 @@
-# Título del Proyecto
+# Marvel's Champs
 
-_Acá va un párrafo que describa lo que es el proyecto_
+Se solicita la creación de la estructura de una app que muestre un listado de los
+personajes Marvel y permite ver el detalle de cada uno de ellos de manera
+individual
 
-## Comenzando 🚀
+## Requisitos 📋
 
-_Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
+    ● Requerido usar Xcode/Android Studio.
+    ● Requerido utilizar Swift/Kotlin
+    ● Se puede hacer uso de frameworks y librerías de terceros.
+    ● No usar SwiftUI en iOS para la implementación de la capa de vista.
+    ● Se valorará la implementación de tests.
+    ● Se valorará un correcto control de errores.
+    ● Total libertad para añadir cualquier funcionalidad extra que se considere
 
-Mira **Deployment** para conocer como desplegar el proyecto.
+## ¿Por qué utilizo...? 🔧
 
+### MVVM y Clean Architecture
 
-### Pre-requisitos 📋
+He utilizado la arquitectura MVVM y Clean Architecture (Presentación, casos de uso, domain, data, framework). También podría haber separado el detalle del campeón en un modulo,
+ ya que a partir de ahora, GooglePlay no acepta apk, solo Bundle App.  
 
-_Que cosas necesitas para instalar el software y como instalarlas_
+### Ramas
+La principal para la prueba es la rama "master", pero hay otras 2 ramas por si se quieren revisar. Una es "detail_petition", hace otra petición para recoger los detalles
+de un campeón, ya que en la rama "master" utilizo los datos recogidos en la petición donde se recogen todos los campeones. Otra rama es "bbdd" donde he intentado utilizar
+una base de datos, pero me he quedado sin tiempo, esta a medio hacer.
 
-```
-Da un ejemplo
-```
-
-### Instalación 🔧
-
-_Una serie de ejemplos paso a paso que te dice lo que debes ejecutar para tener un entorno de desarrollo ejecutandose_
-
-_Dí cómo será ese paso_
-
-```
-Da un ejemplo
-```
-
-_Y repite_
-
-```
-hasta finalizar
-```
-
-_Finaliza con un ejemplo de cómo obtener datos del sistema o como usarlos para una pequeña demo_
-
-## Ejecutando las pruebas ⚙️
-
-_Explica como ejecutar las pruebas automatizadas para este sistema_
-
-### Analice las pruebas end-to-end 🔩
-
-_Explica que verifican estas pruebas y por qué_
-
-```
-Da un ejemplo
-```
-
-### Y las pruebas de estilo de codificación ⌨️
-
-_Explica que verifican estas pruebas y por qué_
-
-```
-Da un ejemplo
-```
-
-## Despliegue 📦
-
-_Agrega notas adicionales sobre como hacer deploy_
-
-## Construido con 🛠️
-
-_Menciona las herramientas que utilizaste para crear tu proyecto_
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - El framework web usado
-* [Maven](https://maven.apache.org/) - Manejador de dependencias
-* [ROME](https://rometools.github.io/rome/) - Usado para generar RSS
-
-## Contribuyendo 🖇️
-
-Por favor lee el [CONTRIBUTING.md](https://gist.github.com/villanuevand/xxxxxx) para detalles de nuestro código de conducta, y el proceso para enviarnos pull requests.
-
-## Wiki 📖
-
-Puedes encontrar mucho más de cómo utilizar este proyecto en nuestra [Wiki](https://github.com/tu/proyecto/wiki)
-
-## Versionado 📌
-
-Usamos [SemVer](http://semver.org/) para el versionado. Para todas las versiones disponibles, mira los [tags en este repositorio](https://github.com/tu/proyecto/tags).
-
-## Autores ✒️
-
-_Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios_
-
-* **Andrés Villanueva** - *Trabajo Inicial* - [villanuevand](https://github.com/villanuevand)
-* **Fulanito Detal** - *Documentación* - [fulanitodetal](#fulanito-de-tal)
-
-También puedes mirar la lista de todos los [contribuyentes](https://github.com/your/project/contributors) quíenes han participado en este proyecto. 
-
-## Licencia 📄
-
-Este proyecto está bajo la Licencia (Tu Licencia) - mira el archivo [LICENSE.md](LICENSE.md) para detalles
-
-## Expresiones de Gratitud 🎁
-
-* Comenta a otros sobre este proyecto 📢
-* Invita una cerveza 🍺 o un café ☕ a alguien del equipo. 
-* Da las gracias públicamente 🤓.
-* etc.
-
-
-
----
-⌨️ con ❤️ por [Villanuevand](https://github.com/Villanuevand) 😊
+###  Librerías
+He intentado utilizar todo con lo que he trabajdo hasta ahora:
+    ● Injección de dependencias con Hilt (Dagger)
+    ● Retrofit para las peticiónes. Aunque en mi actual empresa estoy trabajando con Volley. Se trabajar con las 2
+    ● ViewModel y Livedata obviamente para poder trabajar con MVVM
+    ● Room como capa de abstracción para la base de datos (Como he comentado anteriormente, en la rama "bbdd" se puede ver)
+    ● Navigation de Android Jetpack que permite implementar la navegación
+    ● Sin test
+    ● 
