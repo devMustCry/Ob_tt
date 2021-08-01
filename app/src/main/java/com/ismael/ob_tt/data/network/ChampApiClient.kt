@@ -12,5 +12,5 @@ interface ChampApiClient {
     suspend fun getAllChamps(@Query("ts") ts:String, @Query("apikey") apiKey:String, @Query("hash") hash:String): Response<ChampsResponse>
 
     @GET("/v1/public/characters/{characterId}")
-    suspend fun getSelectChamp(@Path("characterId") id: String, @Query("ts") ts:String, @Query("apikey") apikey : String, @Query("hash") hash: String): Response<Champ>
+    suspend fun getSelectChamp(@Path("characterId") id: String, @Query("ts") ts:String, @Query("apikey") apikey : String, @Query("hash") hash: String): Response<ChampsResponse>
 }

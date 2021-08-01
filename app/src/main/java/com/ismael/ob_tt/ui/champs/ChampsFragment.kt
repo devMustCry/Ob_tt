@@ -71,7 +71,7 @@ class ChampsFragment : Fragment(), ChampsAdapter.ClickListener {
     override fun onItemClick(champ: Champ) {
         findNavController().navigate(
             R.id.action_champsFragment_to_champDetailFragment,
-            bundleOf("champ" to champ)
+            bundleOf("id" to champ.id)
         )
     }
 }

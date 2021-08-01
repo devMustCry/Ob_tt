@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
-@Entity(tableName = "thumbnail")
+
 data class Thumbnail (
     @PrimaryKey(autoGenerate = true)
     @SerializedName("id")           var id: Int,
