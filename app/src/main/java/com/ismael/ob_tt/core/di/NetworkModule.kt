@@ -4,11 +4,6 @@ import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.ismael.ob_tt.core.ApiEndPoint
-import com.ismael.ob_tt.data.local.AppDatabase
-import com.ismael.ob_tt.data.local.ChampDao
-import com.ismael.ob_tt.data.network.CharacterApiClient
-import com.ismael.ob_tt.data.network.CharacterService
-import com.ismael.ob_tt.data.repository.CharactersRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
