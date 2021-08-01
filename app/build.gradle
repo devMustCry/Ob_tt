@@ -90,9 +90,13 @@ dependencies {
     kapt "androidx.room:room-compiler:$room_version"
 
     //Navigation
-    def nav_version = "2.3.0"
+    def nav_version = "2.3.5"
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    //Lottie
+    def lottie_version = "2.8.0"
+    implementation "com.airbnb.android:lottie:$lottie_version"
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

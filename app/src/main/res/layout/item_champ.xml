@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="15dp"
     android:elevation="7dp"
-    app:cardCornerRadius="@dimen/item_character_card_corners_radius">
+    app:cardCornerRadius="@dimen/item_champ_card_corners_radius">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -13,7 +13,7 @@
         >
 
     <ImageView
-        android:id="@+id/ivCharacter"
+        android:id="@+id/ivChamp"
         android:layout_width="100dp"
         android:layout_height="100dp"
         app:layout_constraintTop_toTopOf="parent"
@@ -23,11 +23,11 @@
         android:id="@+id/tvName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintLeft_toRightOf="@+id/ivCharacter"
+        app:layout_constraintLeft_toRightOf="@+id/ivChamp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        style="@style/Item.Character.Name" />
+        style="@style/Item.Champ.Name" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

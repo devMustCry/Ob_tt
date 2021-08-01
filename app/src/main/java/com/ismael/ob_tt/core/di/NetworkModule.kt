@@ -1,8 +1,6 @@
 package com.ismael.ob_tt.core.di
 
 import com.ismael.ob_tt.core.ApiEndPoint
-//import com.ismael.ob_tt.data.local.AppDatabase
-//import com.ismael.ob_tt.data.local.CharacterDao
 import com.ismael.ob_tt.data.network.ChampApiClient
 import com.ismael.ob_tt.data.network.ChampService
 import dagger.Module
@@ -35,13 +33,12 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun providerCharacterApiClient(retrofit: Retrofit): ChampApiClient{
+    fun providerChampApiClient(retrofit: Retrofit): ChampApiClient{
         return retrofit.create(ChampApiClient::class.java)
     }
 
     @Singleton
     @Provides
-    fun provideCharacterRemoteDataSource(champApiClient: ChampApiClient) = ChampService(champApiClient)
-
+    fun provideChampRemoteDataSource(champApiClient: ChampApiClient) = ChampService(champApiClient)
 
 }

@@ -31,16 +31,16 @@ class ChampDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        arguments?.get("champ")?.let {(bindCharacter(it as Champ))}
+        arguments?.get("champ")?.let {(bindChamp(it as Champ))}
     }
 
     private fun setupObservers() {
-        viewModel.characterModel.observe(viewLifecycleOwner, Observer {
+        viewModel.champModel.observe(viewLifecycleOwner, Observer {
             when (it.status) {
                 Resource.Status.SUCCESS -> {
-                    bindCharacter(it.data!!)
+                    bindChamp(it.data!!)
                     binding.progressBar.visibility = View.GONE
-                    binding.characterCl.visibility = View.VISIBLE
+                    binding.champCl.visibility = View.VISIBLE
                 }
 
                 Resource.Status.ERROR ->
@@ -48,14 +48,38 @@ class ChampDetailFragment : Fragment() {
 
                 Resource.Status.LOADING -> {
                     binding.progressBar.visibility = View.VISIBLE
-                    binding.characterCl.visibility = View.GONE
+                    binding.champCl.visibility = View.GONE
                 }
             }
         })
     }
 
-    private fun bindCharacter(champ: Champ) {
-        binding.image.fromUrl("${champ.thumbnail?.path}.${champ.thumbnail?.extension}")
-        binding.name.text = champ.name
+    private fun bindChamp(champ: Champ) {
+        binding.ivChamp.fromUrl("${champ.thumbnail?.path}.${champ.thumbnail?.extension}")
+        binding.tvName.text = champ.name
+        binding.tvDescription.text = champ.description
+        if(!champ.comics?.items.isNullOrEmpty()){
+            for(item in champ.comics?.items!!){
+                binding.tvComics.text = "${binding.tvComics.text}, ${item!!.name}"
+            }
+        }
+
+        if(!champ.stories?.itemChamps.isNullOrEmpty()){
+            for(item in champ.stories?.itemChamps!!){
+                binding.tvStories.text = "${binding.tvStories.text}, ${item!!.name}"
+            }
+        }
+
+        if(!champ.events?.itemChamps.isNullOrEmpty()){
+            for(item in champ.events?.itemChamps!!){
+                binding.tvEvents.text = "${binding.tvEvents.text}, ${item!!.name}"
+            }
+        }
+
+        if(!champ.series?.itemChamps.isNullOrEmpty()){
+            for(item in champ.series?.itemChamps!!){
+                binding.tvSeries.text = "${binding.tvSeries.text}, ${item!!.name}"
+            }
+        }
     }
 }

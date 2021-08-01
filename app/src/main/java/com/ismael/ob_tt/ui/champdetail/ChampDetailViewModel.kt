@@ -14,14 +14,14 @@ class ChampDetailViewModel @Inject constructor(
     private val getSelectChampUseCase : GetSelectChampUseCase
 ) : ViewModel() {
 
-    val characterModel = MutableLiveData<Resource<Champ>>()
+    val champModel = MutableLiveData<Resource<Champ>>()
     val isLoading = MutableLiveData<Boolean>()
 
-    fun onCreate(idCharacter: String){
+    fun onCreate(idChamp: String){
         viewModelScope.launch {
-            val result = getSelectChampUseCase(idCharacter)
+            val result = getSelectChampUseCase(idChamp)
             isLoading.postValue(true)
-            characterModel.postValue(result)
+            champModel.postValue(result)
             isLoading.postValue(false)
         }
     }

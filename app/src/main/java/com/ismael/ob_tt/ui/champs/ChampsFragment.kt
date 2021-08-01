@@ -19,14 +19,13 @@ import com.ismael.ob_tt.utils.autoCleared
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class ChampsFragment : Fragment(), CharactersAdapter.ClickListener {
+class ChampsFragment : Fragment(), ChampsAdapter.ClickListener {
 
     private var binding: ChampsFragmentBinding by autoCleared()
 
     private val champsViewModel: ChampsViewModel by viewModels()
 
-    lateinit var listCharacters: List<Champ>
-    lateinit var charactersAdapter: CharactersAdapter
+    lateinit var champsAdapter: ChampsAdapter
 
 
     override fun onCreateView(
@@ -45,19 +44,19 @@ class ChampsFragment : Fragment(), CharactersAdapter.ClickListener {
     }
 
     private fun setupRecyclerView() {
-        charactersAdapter = CharactersAdapter(this)
-        binding.rvCharacters.layoutManager = LinearLayoutManager(requireContext())
-        binding.rvCharacters.adapter = charactersAdapter
+        champsAdapter = ChampsAdapter(this)
+        binding.rvChamps.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvChamps.adapter = champsAdapter
     }
 
 
     private fun subscribeObservers(){
 
-        champsViewModel.charactersModel.observe(viewLifecycleOwner, Observer {
+        champsViewModel.champsModel.observe(viewLifecycleOwner, Observer {
             when (it.status) {
                 Resource.Status.SUCCESS -> {
                     binding.progressBar.visibility = View.GONE
-                    charactersAdapter.setItems(it.data?.data?.champs!!)
+                    champsAdapter.setItems(it.data?.data?.champs!!)
                 }
                 Resource.Status.ERROR ->
                     Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
@@ -74,7 +73,7 @@ class ChampsFragment : Fragment(), CharactersAdapter.ClickListener {
 
     override fun onItemClick(champ: Champ) {
         findNavController().navigate(
-            R.id.action_charactersFragment_to_characterDetailFragment,
+            R.id.action_champsFragment_to_champDetailFragment,
             bundleOf("champ" to champ)
         )
     }

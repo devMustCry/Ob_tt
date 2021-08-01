@@ -8,7 +8,7 @@ import com.ismael.ob_tt.data.model.Champ
 import com.ismael.ob_tt.databinding.ItemChampBinding
 import com.ismael.ob_tt.utils.fromUrl
 
-class CharactersAdapter (private val listener: ClickListener) : RecyclerView.Adapter<ViewHolder>() {
+class ChampsAdapter (private val listener: ClickListener) : RecyclerView.Adapter<ViewHolder>() {
 
     interface ClickListener {
         fun onItemClick(champ: Champ)
@@ -34,7 +34,7 @@ class CharactersAdapter (private val listener: ClickListener) : RecyclerView.Ada
         holder.bind(items[position])
 }
 
-class ViewHolder(private val itemBinding: ItemChampBinding, private val listener: CharactersAdapter.ClickListener) : RecyclerView.ViewHolder(itemBinding.root),
+class ViewHolder(private val itemBinding: ItemChampBinding, private val listener: ChampsAdapter.ClickListener) : RecyclerView.ViewHolder(itemBinding.root),
     View.OnClickListener {
 
     private lateinit var champ: Champ
@@ -46,7 +46,7 @@ class ViewHolder(private val itemBinding: ItemChampBinding, private val listener
     fun bind(item: Champ) {
         this.champ = item
         itemBinding.tvName.text = champ.name
-        itemBinding.ivCharacter.fromUrl("${champ.thumbnail?.path}.${champ.thumbnail?.extension}")
+        itemBinding.ivChamp.fromUrl("${champ.thumbnail?.path}.${champ.thumbnail?.extension}")
     }
 
     override fun onClick(v: View?) {

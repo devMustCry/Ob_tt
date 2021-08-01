@@ -15,14 +15,14 @@ class ChampsViewModel @Inject constructor(
     private val getAllChampsUseCase : GetAllChampsUseCase
 ) : ViewModel() {
 
-    val charactersModel = MutableLiveData<Resource<ChampsResponse>>()
+    val champsModel = MutableLiveData<Resource<ChampsResponse>>()
     val isLoading = MutableLiveData<Boolean>()
 
     fun onCreate() {
         viewModelScope.launch {
             isLoading.postValue(true)
             val result = getAllChampsUseCase()
-            charactersModel.postValue(result)
+            champsModel.postValue(result)
             isLoading.postValue(false)
         }
     }
