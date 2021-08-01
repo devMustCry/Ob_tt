@@ -24,5 +24,16 @@ class CharactersRepository @Inject constructor(
         networkCall = { api.getCharacters() },
         saveCallResult = { localDataSource.insertAll(it.data!!.champs!!) }
     )
+<<<<<<< HEAD
 
+=======
+
+    /*suspend fun getChamps(): Resource<AllCharactersResponse> {
+        return api.getCharacters()
+    }
+
+    suspend fun getChamp(idCharacter : String): Resource<Champ>{
+        return api.getSelectCharacter(idCharacter)
+    }*/
+>>>>>>> e37409e27a76d1039ab22de7f19aea9304c6ef41
 }
