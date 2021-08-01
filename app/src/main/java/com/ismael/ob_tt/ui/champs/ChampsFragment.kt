@@ -66,9 +66,6 @@ class ChampsFragment : Fragment(), ChampsAdapter.ClickListener {
             }
         })
 
-        /*charactersViewModel.isLoading.observe(this, Observer {
-            binding.progressBar.isVisible = it
-        })*/
     }
 
     override fun onItemClick(champ: Champ) {
