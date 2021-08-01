@@ -1,12 +1,12 @@
 package com.ismael.ob_tt.domain
 
-import com.ismael.ob_tt.data.repository.CharactersRepository
+import com.ismael.ob_tt.data.repository.ChampsRepository
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class GetAllCharactersUseCase @Inject constructor(
-    private val repository : CharactersRepository
+class GetAllChampsUseCase @Inject constructor(
+    private val repository : ChampsRepository
     ) {
 
     suspend operator fun invoke() = repository.getChamps()

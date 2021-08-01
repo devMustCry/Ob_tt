@@ -1,4 +1,4 @@
-package com.ismael.ob_tt.ui.characters
+package com.ismael.ob_tt.ui.champs
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,17 +13,17 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ismael.ob_tt.R
 import com.ismael.ob_tt.data.model.Champ
-import com.ismael.ob_tt.databinding.CharactersFragmentBinding
+import com.ismael.ob_tt.databinding.ChampsFragmentBinding
 import com.ismael.ob_tt.utils.Resource
 import com.ismael.ob_tt.utils.autoCleared
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class CharactersFragment : Fragment(), CharactersAdapter.ClickListener {
+class ChampsFragment : Fragment(), CharactersAdapter.ClickListener {
 
-    private var binding: CharactersFragmentBinding by autoCleared()
+    private var binding: ChampsFragmentBinding by autoCleared()
 
-    private val charactersViewModel: CharactersViewModel by viewModels()
+    private val champsViewModel: ChampsViewModel by viewModels()
 
     lateinit var listCharacters: List<Champ>
     lateinit var charactersAdapter: CharactersAdapter
@@ -33,7 +33,7 @@ class CharactersFragment : Fragment(), CharactersAdapter.ClickListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = CharactersFragmentBinding.inflate(inflater, container, false)
+        binding = ChampsFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -41,7 +41,7 @@ class CharactersFragment : Fragment(), CharactersAdapter.ClickListener {
         super.onViewCreated(view, savedInstanceState)
         setupRecyclerView()
         subscribeObservers()
-        charactersViewModel.onCreate()
+        champsViewModel.onCreate()
     }
 
     private fun setupRecyclerView() {
@@ -53,7 +53,7 @@ class CharactersFragment : Fragment(), CharactersAdapter.ClickListener {
 
     private fun subscribeObservers(){
 
-        charactersViewModel.charactersModel.observe(viewLifecycleOwner, Observer {
+        champsViewModel.charactersModel.observe(viewLifecycleOwner, Observer {
             when (it.status) {
                 Resource.Status.SUCCESS -> {
                     binding.progressBar.visibility = View.GONE
@@ -66,23 +66,6 @@ class CharactersFragment : Fragment(), CharactersAdapter.ClickListener {
                     binding.progressBar.visibility = View.VISIBLE
             }
         })
-
-        /*charactersViewModel.charactersModel.observe(this, Observer {
-            if(it != null){
-                showCharacters(it)
-            }else{
-                showErrorScreen()
-            }
-
-        })
-
-        charactersViewModel.characterModel.observe(this, Observer {
-            if(it != null){
-                Toast.makeText(requireContext(), it.resourceURI, Toast.LENGTH_SHORT).show()
-            }else{
-                showErrorScreen()
-            }
-        })*/
 
         /*charactersViewModel.isLoading.observe(this, Observer {
             binding.progressBar.isVisible = it

@@ -1,33 +1,29 @@
-package com.ismael.ob_tt.ui.characters
+package com.ismael.ob_tt.ui.champs
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.ismael.ob_tt.data.model.Champ
-import com.ismael.ob_tt.data.model.AllCharactersResponse
-import com.ismael.ob_tt.domain.GetAllCharactersUseCase
-import com.ismael.ob_tt.domain.GetSelectCharacterUseCase
+import com.ismael.ob_tt.data.model.ChampsResponse
+import com.ismael.ob_tt.domain.GetAllChampsUseCase
 import com.ismael.ob_tt.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class CharactersViewModel @Inject constructor(
-    private val getAllCharactersUseCase : GetAllCharactersUseCase
+class ChampsViewModel @Inject constructor(
+    private val getAllChampsUseCase : GetAllChampsUseCase
 ) : ViewModel() {
 
-    //val characters = repository.getChamps()
-
-    val charactersModel = MutableLiveData<Resource<AllCharactersResponse>>()
+    val charactersModel = MutableLiveData<Resource<ChampsResponse>>()
     val isLoading = MutableLiveData<Boolean>()
 
     fun onCreate() {
         viewModelScope.launch {
-            //isLoading.postValue(true)
-            val result = getAllCharactersUseCase()
+            isLoading.postValue(true)
+            val result = getAllChampsUseCase()
             charactersModel.postValue(result)
-            //isLoading.postValue(false)
+            isLoading.postValue(false)
         }
     }
 

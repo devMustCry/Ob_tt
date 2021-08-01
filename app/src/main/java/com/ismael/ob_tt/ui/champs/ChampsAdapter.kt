@@ -1,11 +1,11 @@
-package com.ismael.ob_tt.ui.characters
+package com.ismael.ob_tt.ui.champs
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ismael.ob_tt.data.model.Champ
-import com.ismael.ob_tt.databinding.ItemCharacterBinding
+import com.ismael.ob_tt.databinding.ItemChampBinding
 import com.ismael.ob_tt.utils.fromUrl
 
 class CharactersAdapter (private val listener: ClickListener) : RecyclerView.Adapter<ViewHolder>() {
@@ -23,8 +23,8 @@ class CharactersAdapter (private val listener: ClickListener) : RecyclerView.Ada
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding: ItemCharacterBinding =
-            ItemCharacterBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding: ItemChampBinding =
+            ItemChampBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding, listener)
     }
 
@@ -34,7 +34,7 @@ class CharactersAdapter (private val listener: ClickListener) : RecyclerView.Ada
         holder.bind(items[position])
 }
 
-class ViewHolder(private val itemBinding: ItemCharacterBinding, private val listener: CharactersAdapter.ClickListener) : RecyclerView.ViewHolder(itemBinding.root),
+class ViewHolder(private val itemBinding: ItemChampBinding, private val listener: CharactersAdapter.ClickListener) : RecyclerView.ViewHolder(itemBinding.root),
     View.OnClickListener {
 
     private lateinit var champ: Champ

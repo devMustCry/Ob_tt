@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.characterdetail.CharacterDetailFragment">
+    tools:context=".ui.champdetail.ChampDetailFragment">
 
     <ProgressBar
         android:id="@+id/progress_bar"
@@ -36,6 +36,7 @@
             tools:text="TextView"
             android:textSize="18sp"
             android:textStyle="bold"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/image" />

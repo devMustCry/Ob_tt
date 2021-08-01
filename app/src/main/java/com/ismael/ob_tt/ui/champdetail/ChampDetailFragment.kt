@@ -1,7 +1,6 @@
-package com.ismael.ob_tt.ui.characterdetail
+package com.ismael.ob_tt.ui.champdetail
 
 import android.os.Bundle
-import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,31 +9,29 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.ismael.ob_tt.data.model.Champ
-import com.ismael.ob_tt.databinding.CharacterDetailFragmentBinding
+import com.ismael.ob_tt.databinding.ChampDetailFragmentBinding
 import com.ismael.ob_tt.utils.Resource
 import com.ismael.ob_tt.utils.autoCleared
 import com.ismael.ob_tt.utils.fromUrl
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class CharacterDetailFragment : Fragment() {
+class ChampDetailFragment : Fragment() {
 
-    private var binding: CharacterDetailFragmentBinding by autoCleared()
-    private val viewModel: CharacterDetailViewModel by viewModels()
+    private var binding: ChampDetailFragmentBinding by autoCleared()
+    private val viewModel: ChampDetailViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = CharacterDetailFragmentBinding.inflate(inflater, container, false)
+        binding = ChampDetailFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //arguments?.getString("champ")?.let { viewModel.onCreate(it) }
         arguments?.get("champ")?.let {(bindCharacter(it as Champ))}
-        //setupObservers()
     }
 
     private fun setupObservers() {
