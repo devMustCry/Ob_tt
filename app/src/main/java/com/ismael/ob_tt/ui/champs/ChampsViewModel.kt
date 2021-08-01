@@ -26,18 +26,4 @@ class ChampsViewModel @Inject constructor(
             isLoading.postValue(false)
         }
     }
-
-    /*fun getDetailsCharacter(idCharacter: String){
-        viewModelScope.launch {
-            val result = getSelectCharacterUseCase(idCharacter)
-
-            /*if(!result?.resourceURI.isNullOrEmpty()){
-                characterModel.postValue(result!!)
-                isLoading.postValue(false)
-            }else{
-                isLoading.postValue(true)
-            }*/
-        }
-    }*/
-
 }

@@ -4,9 +4,9 @@ import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
-@Parcelize
+
 data class ItemChamp (
     @SerializedName("resourceURI")  var resourceURI: String?,
     @SerializedName("name")         var name: String?,
     @SerializedName("type")         var type: String?,
-): Parcelable
+)
