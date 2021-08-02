@@ -28,7 +28,7 @@ object NetworkModule {
 
         return Retrofit.Builder()
             .baseUrl(ApiEndPoint.BASEPATH)
-            .client(client)
+            //.client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
