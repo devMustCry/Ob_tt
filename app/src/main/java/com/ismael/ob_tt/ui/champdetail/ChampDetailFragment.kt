@@ -19,7 +19,6 @@ import dagger.hilt.android.AndroidEntryPoint
 class ChampDetailFragment : Fragment() {
 
     private var binding: ChampDetailFragmentBinding by autoCleared()
-    private val champViewModel: ChampDetailViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,28 +30,7 @@ class ChampDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupObservers()
-        champViewModel.onCreate(arguments?.get("id") as String)
-    }
-
-    private fun setupObservers() {
-        champViewModel.champModel.observe(viewLifecycleOwner, Observer {
-            when (it.status) {
-                Resource.Status.SUCCESS -> {
-                    bindChamp(it.data!!.data!!.champs?.get(0)!!)
-                    binding.progressBar.visibility = View.GONE
-                    binding.champCl.visibility = View.VISIBLE
-                }
-
-                Resource.Status.ERROR ->
-                    Toast.makeText(activity, it.message, Toast.LENGTH_SHORT).show()
-
-                Resource.Status.LOADING -> {
-                    binding.progressBar.visibility = View.VISIBLE
-                    binding.champCl.visibility = View.GONE
-                }
-            }
-        })
+        arguments?.get("champ")?.let {(bindChamp(it as Champ))}
     }
 
     private fun bindChamp(champ: Champ) {

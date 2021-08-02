@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
-@Entity(tableName = "stories")
+@Parcelize
 data class Stories (
     @PrimaryKey(autoGenerate = true)
     @SerializedName("id")               var id: Int,
@@ -14,4 +14,4 @@ data class Stories (
     @SerializedName("returned")         var returned: String?,
     @SerializedName("collectionURI")    var collectionURI: String?,
     @SerializedName("items")            var itemChamps: List<ItemChamp?>?,
-)
+):Parcelable

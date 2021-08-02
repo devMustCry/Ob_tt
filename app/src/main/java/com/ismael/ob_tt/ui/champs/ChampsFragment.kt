@@ -65,13 +65,12 @@ class ChampsFragment : Fragment(), ChampsAdapter.ClickListener {
                     binding.progressBar.visibility = View.VISIBLE
             }
         })
-
     }
 
     override fun onItemClick(champ: Champ) {
         findNavController().navigate(
             R.id.action_champsFragment_to_champDetailFragment,
-            bundleOf("id" to champ.id)
+            bundleOf("champ" to champ)
         )
     }
 }
