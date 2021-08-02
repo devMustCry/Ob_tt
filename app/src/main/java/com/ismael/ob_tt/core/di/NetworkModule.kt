@@ -1,18 +1,13 @@
 package com.ismael.ob_tt.core.di
 
-import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.ismael.ob_tt.core.ApiEndPoint
-import com.ismael.ob_tt.data.local.AppDatabase
-import com.ismael.ob_tt.data.local.ChampDao
-import com.ismael.ob_tt.data.network.CharacterApiClient
-import com.ismael.ob_tt.data.network.CharacterService
-import com.ismael.ob_tt.data.repository.CharactersRepository
+import com.ismael.ob_tt.data.network.ChampApiClient
+import com.ismael.ob_tt.data.network.ChampService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -33,7 +28,7 @@ object NetworkModule {
 
         return Retrofit.Builder()
             .baseUrl(ApiEndPoint.BASEPATH)
-            .client(client)
+            //.client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
@@ -43,26 +38,13 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun providerCharacterApiClient(retrofit: Retrofit): CharacterApiClient{
-        return retrofit.create(CharacterApiClient::class.java)
+    fun providerCharacterApiClient(retrofit: Retrofit): ChampApiClient{
+        return retrofit.create(ChampApiClient::class.java)
     }
 
     @Singleton
     @Provides
-    fun provideCharacterRemoteDataSource(characterApiClient: CharacterApiClient) = CharacterService(characterApiClient)
+    fun provideCharacterRemoteDataSource(characterApiClient: ChampApiClient) = ChampService(characterApiClient)
 
-    @Singleton
-    @Provides
-    fun provideDatabase(@ApplicationContext appContext: Context) = AppDatabase.getDatabase(appContext)
-
-    @Singleton
-    @Provides
-    fun provideCharacterDao(db: AppDatabase) = db.champDao()
-
-    @Singleton
-    @Provides
-    fun provideRepository(remoteDataSource: CharacterService,
-                          localDataSource: ChampDao) =
-        CharactersRepository(remoteDataSource, localDataSource)
 
 }
