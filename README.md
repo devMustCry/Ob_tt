@@ -2,7 +2,7 @@
 
 Se solicita la creación de la estructura de una app que muestre un listado de los
 personajes Marvel y permite ver el detalle de cada uno de ellos de manera
-individual
+individual. No me he centrado mucho en la interfaz de la app, entiendo que se van a evaluar mis capacidades técnicas.
 
 ## Requisitos 📋
 
