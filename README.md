@@ -5,9 +5,6 @@ personajes Marvel y permite ver el detalle de cada uno de ellos de manera
 individual. No me he centrado mucho en la interfaz de la app, entiendo que se van a evaluar mis capacidades técnicas.
 
 
-#Resumen
-Aplica
-
 ## Requisitos 📋
 
     ● Requerido usar Xcode/Android Studio.
