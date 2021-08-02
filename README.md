@@ -4,6 +4,10 @@ Se solicita la creación de la estructura de una app que muestre un listado de l
 personajes Marvel y permite ver el detalle de cada uno de ellos de manera
 individual. No me he centrado mucho en la interfaz de la app, entiendo que se van a evaluar mis capacidades técnicas.
 
+
+#Resumen
+Aplica
+
 ## Requisitos 📋
 
     ● Requerido usar Xcode/Android Studio.
@@ -19,7 +23,11 @@ individual. No me he centrado mucho en la interfaz de la app, entiendo que se va
 ### MVVM y Clean Architecture
 
 He utilizado la arquitectura MVVM y Clean Architecture (Presentación, casos de uso, domain, data, framework). También podría haber separado el detalle del campeón en un modulo,
- ya que a partir de ahora, GooglePlay no acepta apk, solo Bundle App.  
+ ya que a partir de ahora, GooglePlay no acepta apk, solo Bundle App. También utilizo camelcase como convención de nomenclatura.
+ 
+### Singleton y Provides
+Singleton para instanciar una sola vez y utilizar siempre el mismo recurso, independientemente de las llamadas.
+Provides para proporcionar clases que no sean propiedad de mi proyecto 
 
 ### Ramas
 
@@ -29,12 +37,12 @@ una base de datos, pero me he quedado sin tiempo, esta a medio hacer.
 
 ###  Librerías
 
-He intentado utilizar todo con lo que he trabajdo hasta ahora:
+He intentado utilizar todo con lo que he trabajado hasta ahora:
 
     ● Injección de dependencias con Hilt (Dagger)
     ● Retrofit para las peticiónes. Aunque en mi actual empresa estoy trabajando con Volley. Se trabajar con las 2
     ● ViewModel y Livedata obviamente para poder trabajar con MVVM
-    ● Room como capa de abstracción para la base de datos (Como he comentado anteriormente, en la rama "bbdd" se puede ver)
+    ● Room como capa de abstracción para la base de datos (Como he comentado anteriormente, en la rama "bbdd" se puede ver). También control de versiones de base de datos
     ● Navigation de Android Jetpack que permite implementar la navegación
     ● Sin test 
     ● Internacionalización de textos
