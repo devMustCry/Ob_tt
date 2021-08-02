@@ -7,14 +7,6 @@
     android:background="@color/white"
     tools:context=".ui.champdetail.ChampDetailFragment">
 
-    <ProgressBar
-        android:id="@+id/progress_bar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:indeterminate="true"
-        tools:visibility="gone" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/champ_cl"
         android:layout_width="match_parent"
@@ -74,7 +66,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="20dp"
-                        android:text="Comics: "
+                        android:text="@string/comics"
                         app:layout_constraintTop_toTopOf="parent"
                         />
 
@@ -83,7 +75,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="20dp"
-                        android:text="Stories: "
+                        android:text="@string/stories"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/tvComics" />
                     <TextView
@@ -91,7 +83,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="20dp"
-                        android:text="Events: "
+                        android:text="@string/events"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/tvStories" />
 
@@ -101,7 +93,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="20dp"
-                        android:text="Series: "
+                        android:text="@string/series"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/tvEvents" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
