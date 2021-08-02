@@ -26,4 +26,5 @@ class ChampsViewModel @Inject constructor(
             isLoading.postValue(false)
         }
     }
+
 }
